@@ -61,12 +61,12 @@ function sendData(){
 				serverResponse = xmlhttp.responseText 
 				var code = parseInt(serverResponse);
 				console.log(serverResponse);
-				if (code == -1){
-					alert("The username you have selected already exists. Press ok to re-enter data")
-					clearInputs(inputArray);
-				} else if(code == 1){
+				if (code == 1){
 					alert("Account created successfully. Press OK to be redirected");
 					window.location = "index.php";
+				} else {
+					alert("The username you have selected already exists. Press ok to re-enter data")
+					clearInputs(inputArray);
 				}
 		  }
 	  }

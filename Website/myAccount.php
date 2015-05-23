@@ -96,11 +96,7 @@
               <!-- #Slider Ends -->
             </div>
 			<div class="spacer"><h4><span class="glyphicon glyphicon-star"></span>Username</h4>
-				<div class="col-lg-6 col-sm-6">
-					<legend>Profile Picture</legend>
-					<img src="images/Users/user_without_photo.png" class="img-responsive img-circle" alt="properties"/>
-				</div>
-					<input id="username" type="text" class="form-control" name="form_name" maxlength="20" readonly value="<?php echo $username?>">
+				<input id="username" type="text" class="form-control" name="form_name" maxlength="20" readonly value="<?php echo $username?>">
 			</div>
 			<div class="col-lg-6 col-sm-6">
 				<div class="spacer"><h4><span class="glyphicon glyphicon-asterisk"></span>Contact Details</h4>
@@ -111,7 +107,8 @@
 			</div>
 			<div class="col-lg-6 col-sm-6">
 				<div class="spacer"><h4><span class="glyphicon glyphicon-th"></span>Images</h4>
-					<input id="blacklist" type="file" class="form-control" name="image uploadsl">
+					<input id="image_name" type="text" class="form-control" name="image name"/>
+					<input id="image" type="file" class="form-control" name="image upload"/>
 					<button id="upload image" type="button" class="btn btn-primary">Upload Image</button>
 				</div>
 				<div col-lg-6 col-sm-6>

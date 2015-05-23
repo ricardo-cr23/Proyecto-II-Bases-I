@@ -21,7 +21,13 @@
 	$stmt->bind_param('s', $username);
 	$stmt->execute();
 	$result = $stmt->get_result();
+	
+	if($result == false){
+		exit('0');
+	}
+	
 	$row = $result->fetch_row();
+	
 	
 	if($row[2] == $password){
 		if($row[6]  == 1){

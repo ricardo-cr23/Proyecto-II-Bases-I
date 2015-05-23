@@ -27,7 +27,7 @@
 		$stmt->bind_param('sssssi', $username,$password,$name,$lastName,$email,$userType);
 		$stmt->execute();
 		$result= $stmt->get_result()->fetch_row()[0];
-		echo ($result);
+		exit ($result);
 	}
 	
 	$dbconnection->close();
