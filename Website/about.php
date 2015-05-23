@@ -11,7 +11,7 @@
   <div class="spacer">
     <div class="row">
       <div class="col-lg-8  col-lg-offset-2">
-        <img src="images/About Us German Shepherd.jpg" class="img-responsive thumbnail"  alt="realestate">
+        <img src="images/Birds/orruga.jpg" class="img-responsive thumbnail"  alt="realestate">
         <h3>Registration</h3>
         <p>In order to register any lost pets you may have found, you must sign up as a rescuer. This will give you special access to the register pets section, where a variety of options are available to register the pet you have found.</p>
         <h3>Adoption</h3>

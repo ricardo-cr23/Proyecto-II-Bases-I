@@ -6,13 +6,13 @@
     
     <!-- Slider commented by the moment, looking for a clear use -->
     <div class="sl-slider">
-      <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+      <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-10" data-slice2-rotation="-10" data-slice1-scale="1" data-slice2-scale="1">
         <div class="sl-slide-inner">
-          <div class="bg-img bg-img-2"></div>
-          <h2>PetLovers International</h2>
+          <div class="bg-img bg-img-4"></div>
+          <h2>BirdLovers International</h2>
           <blockquote>
             <p class="location"></span> San Jos&#233;, Costa Rica</p>
-            <p>PetLovers International is a non-profit organization that manages various services involved in the care of animals in need.</p>
+            <p>PetLovers International is a non-profit organization that manages various services involved in the care of birds in need.</p>
           </blockquote>
         </div>
       </div>
@@ -24,24 +24,24 @@
       <h2>Reference Images</h2>
       <div id="owl-example" class="owl-carousel">
         <div class="properties">
-          <div class="image-holder"><img src="images/properties/Siberian Husky.jpg" class="img-responsive" alt="properties"/></div>
-          <h4>Siberian Husky</h4> 
+          <div class="image-holder"><img src="images/Birds/momoto.jpg" class="img-responsive" alt="properties"/></div>
+          <h4>Momoto</h4> 
         </div>
         <div class="properties">
-          <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
-          <h4> Golden Retriever</h4>
+          <div class="image-holder"><img src="images/Birds/Tucan.jpg" class="img-responsive" alt="properties"/></div>
+          <h4> Tucan</h4>
         </div>
 		<div class="properties">
-          <div class="image-holder"><img src="images/properties/German Shepherd.jpg" class="img-responsive" alt="properties"/></div>
-          <h4> German Shepherd</h4>
+          <div class="image-holder"><img src="images/Birds/Trogon.jpg" class="img-responsive" alt="properties"/></div>
+          <h4> Trogon </h4>
         </div>
 		<div class="properties">
-          <div class="image-holder"><img src="images/properties/Rottweiler.jpg" class="img-responsive" alt="properties"/></div>
-          <h4> Rottweiler</h4>
+          <div class="image-holder"><img src="images/Birds/Mosqueros.jpg" class="img-responsive" alt="properties"/></div>
+          <h4> Mosquero </h4>
         </div>
 		<div class="properties">
-          <div class="image-holder"><img src="images/properties/Doberman.jpg" class="img-responsive" alt="properties"/></div>
-          <h4> Doberman</h4>
+          <div class="image-holder"><img src="images/Birds/Trogones.jpg" class="img-responsive" alt="properties"/></div>
+          <h4> Trogon </h4>
         </div>
       </div>
     </div>
