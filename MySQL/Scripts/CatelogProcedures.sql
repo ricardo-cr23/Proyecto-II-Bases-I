@@ -1,4 +1,5 @@
--- Script By Miuyin Yong 
+-- Script By Miuyin Yong M
+-- May 24 2015
 
 ----------------------------Inserts----------------------------------------
 
@@ -247,6 +248,182 @@ BEGIN
         RETURN 1;
 	END IF;
 END   
+ 
+
+
+----------------------------Edits---------------------------------------
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_class`(
+     New_class_Name VARCHAR(45), 
+     p_class_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Class 
+	SET Class_Name = New_class_Name
+	WHERE p_class_id = Class_Id; 
+    
+    RETURN 1; 
+END
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_order`(
+     New_order_Name VARCHAR(45), 
+     p_order_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Orders 
+	SET Order_Name = New_order_Name
+	WHERE p_order_id = Order_Id; 
+    
+    RETURN 1; 
+END
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_suborder`(
+     New_suborder_Name VARCHAR(45), 
+     p_suborder_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Sub_Order
+	SET Sub_Order_Name = New_suborder_Name
+	WHERE p_suborder_id = Sub_Order_Id; 
+    
+    RETURN 1; 
+END
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_family`(
+     New_family_Name VARCHAR(45), 
+     p_family_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Family 
+	SET Family_Name = New_family_Name
+	WHERE p_family_id = Family_Id; 
+    
+    RETURN 1; 
+END
+
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_gender`(
+     New_gender_Name VARCHAR(45), 
+     p_gender_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Gender
+	SET Gender_Name = New_Gender_Name
+	WHERE p_gender_id = Gender_Id; 
+    
+    RETURN 1; 
+END
+   
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_specie`(
+     New_specie_Name VARCHAR(45), 
+     p_specie_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.specie
+	SET Specie_Name = New_specie_Name
+	WHERE p_gender_id = Specie_Id; 
+    
+    RETURN 1; 
+
+END  
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_size`(
+     New_size_Name VARCHAR(45), 
+     p_size_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Size
+	SET Size_Name = New_size_Name
+	WHERE p_size_id = Size_Id; 
+    
+    RETURN 1; 
+
+END  
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_habitat`(
+     New_habitat_Name VARCHAR(45), 
+     p_habitat_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Habitat
+	SET Habitat_Name = New_habitat_Name
+	WHERE p_habitat_id = Habitat_Id; 
+    
+    RETURN 1; 
+
+END  
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_beak_type`(
+     New_beak_Name VARCHAR(45), 
+     p_beak_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.beak_type
+	SET Beak_Name = New_beak_Name
+	WHERE p_beak_id = Beak_Type_Id; 
+    
+    RETURN 1; 
+
+END  
+ 
+
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_color`(
+     New_color_Name VARCHAR(45), 
+     p_color_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.Color
+	SET Color_Name = New_Color_Name
+	WHERE p_color_id = Color_Id; 
+    
+    RETURN 1; 
+
+END  
+
+--------------------------------------------------------------------------- 
+
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `update_offspringQuantitty`(
+     New_offspring_Name VARCHAR(45), 
+     p_offspring_id INT
+) RETURNS int(11)
+BEGIN
+	
+    UPDATE birddatabase.offspring_quantity
+	SET Quantity = New_specie_Name
+	WHERE p_gender_id = Offspring_Quantity_Id; 
+    
+    RETURN 1; 
+
+END    
  
 
 ----------------------------Edits----------------------------------------
