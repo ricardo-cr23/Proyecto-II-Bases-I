@@ -6,8 +6,6 @@
 	$imageFile = $json['imageData'][0]; 
 	$imageName = $json['imageData'][1];
 	$imageLocation = $json['imageData'][2];
-	
-	
 	if ($dbconnection->connect_error) {
 		die("Connection failed: " . $dbconnection->connect_error);
 		echo "-1";
