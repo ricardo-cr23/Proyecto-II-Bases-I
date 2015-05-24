@@ -45,7 +45,6 @@ END
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_suborder`(
      p_suborder_Name VARCHAR(45), 
-     p_class_id INT,
      p_order_id INT
 ) RETURNS int(11)
 BEGIN
@@ -57,8 +56,8 @@ BEGIN
     IF suborder_count >= 1 THEN
 		RETURN -1;
 	ELSEIF suborder_count = 0 THEN
-		INSERT INTO Sub_Order(Sub_Order_Name, FK_Order_Id, FK_Class_Id)
-        VALUES (p_suborder_Name, p_order_id, p_class_id);
+		INSERT INTO Sub_Order(Sub_Order_Name, FK_Order_Id)
+        VALUES (p_suborder_Name, p_order_id);
         RETURN 1;
 	END IF;
 END   
@@ -67,8 +66,6 @@ END
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_family`(
      p_family_Name VARCHAR(45),
-     p_class_id INT,
-     p_order_id INT,
      p_suborder_id INT
 ) RETURNS int(11)
 BEGIN
@@ -80,8 +77,8 @@ BEGIN
     IF family_count >= 1 THEN
 		RETURN -1;
 	ELSEIF family_count = 0 THEN
-		INSERT INTO Family(Family_Name, FK_Order_Id, FK_Class_Id, Sub_Order_Id)
-        VALUES (p_family_Name, p_order_id, p_class_id, p_suborder_id);
+		INSERT INTO Family(Family_Name, FK_Sub_Order_Id)
+        VALUES (p_family_Name, p_suborder_id);
         RETURN 1;
 	END IF;
 END  
@@ -90,10 +87,7 @@ END
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_gender`(
-     p_gender_Name VARCHAR(45), 
-     p_class_id INT, 
-     p_order_id INT,
-     p_suborder_id INT, 
+     p_gender_Name VARCHAR(45),  
      p_family_id INT 
 ) RETURNS int(11)
 BEGIN
@@ -105,8 +99,8 @@ BEGIN
     IF gender_count >= 1 THEN
 		RETURN -1;
 	ELSEIF gender_count = 0 THEN
-		INSERT INTO Gender(Geneder_Name, FK_Order_Id, FK_Class_Id, Sub_Order_Id, FK_Family_Id)
-        VALUES (p_gender_Name, p_order_id, p_class_id, p_suborder_id, p_family_id);
+		INSERT INTO Gender(Geneder_Name, FK_Family_Id)
+        VALUES (p_gender_Name, p_family_id);
         RETURN 1;
 	END IF;
 END    
@@ -116,10 +110,6 @@ END
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_species`(
      p_species_Name VARCHAR(45),  
-     p_class_id INT,
-     p_order_id INT, 
-     p_suborder_id INT,
-     p_family_id INT,
      p_gender_id INT,  
      p_size_id INT,  
      p_habitat_id INT,  
@@ -138,8 +128,8 @@ BEGIN
     IF species_count >= 1 THEN
 		RETURN -1;
 	ELSEIF species_count = 0 THEN
-		INSERT INTO Species(Species_Name, FK_Order_Id, FK_Class_Id, Sub_Order_Id, FK_Family_Id, FK_Gender_Id, FK_Size_Id, FK_Habitat_Id,    FK_Beak_Type_Id, FK_Color_Id, FK_Offspring_Quantity_Id, FK_User_Id )
-        VALUES (p_species_Name, p_order_id, p_class_id, p_suborder_id, p_family_id, p_gender_id, p_size_id, p_habitat_id, p_beak_type_id, p_color_id, p_offspring_id, p_user_id);
+		INSERT INTO Species(Species_Name, FK_Gender_Id, FK_Size_Id, FK_Habitat_Id, FK_Beak_Type_Id, FK_Color_Id, FK_Offspring_Quantity_Id, FK_User_Id )
+        VALUES (p_species_Name, p_gender_id, p_size_id, p_habitat_id, p_beak_type_id, p_color_id, p_offspring_id, p_user_id);
         RETURN 1;
 	END IF;
 END   
