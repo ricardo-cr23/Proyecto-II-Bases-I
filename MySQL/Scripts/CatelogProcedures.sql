@@ -13,131 +13,143 @@ BEGIN
     
     IF class_count >= 1 THEN
 		RETURN -1;
-	ELSEIF user_count = 0 THEN
+	ELSEIF class_count = 0 THEN
 		INSERT INTO Class(Class_Name)
         VALUES (p_class_Name);
         RETURN 1;
 	END IF;
-END  
-
+END
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_order`(
      p_order_Name VARCHAR(45), 
-     p_class_id INT
+     p_class VARCHAR(45)
 ) RETURNS int(11)
 BEGIN
-	DECLARE 
-		order_count INT;
+	DECLARE d_class_id INT; 
+	DECLARE order_count INT;  
+    
 	SELECT COUNT(p_order_Name) INTO order_count FROM Orders
-    WHERE p_order_Name = Orders.Order_Name;
+    WHERE p_order_Name = Orders.Order_Name; 
+    
+    SELECT Class_Id INTO d_class_id FROM Class 
+    Where p_class = Class.Class_Name; 
     
     IF order_count >= 1 THEN
 		RETURN -1;
 	ELSEIF order_count = 0 THEN
 		INSERT INTO Orders(Order_Name, FK_Class_Id)
-        VALUES (p_order_Name, p_class_id);
+        VALUES (p_order_Name, d_class_id);
         RETURN 1;
 	END IF;
-END   
+END
 
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_suborder`(
      p_suborder_Name VARCHAR(45), 
-     p_order_id INT
+     p_order VARCHAR(45)
 ) RETURNS int(11)
 BEGIN
-	DECLARE 
-		suborder_count INT;
+	DECLARE suborder_count INT; 
+    DECLARE d_order_id INT;
+    
 	SELECT COUNT(p_suborder_Name) INTO suborder_count FROM Sub_Order
-    WHERE p_suborder_Name = Sub_Order.Sub_Order_Name;
+    WHERE p_suborder_Name = Sub_Order.Sub_Order_Name; 
+    
+    SELECT Order_Id INTO d_order_id FROM Orders 
+    Where p_order = Orders.Order_Name ;
     
     IF suborder_count >= 1 THEN
 		RETURN -1;
 	ELSEIF suborder_count = 0 THEN
 		INSERT INTO Sub_Order(Sub_Order_Name, FK_Order_Id)
-        VALUES (p_suborder_Name, p_order_id);
+        VALUES (p_suborder_Name, d_order_id);
         RETURN 1;
 	END IF;
-END   
+END
 
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_family`(
      p_family_Name VARCHAR(45),
-     p_suborder_id INT
+     p_suborder VARCHAR(45)
 ) RETURNS int(11)
 BEGIN
-	DECLARE 
-		family_count INT;
+	DECLARE family_count INT; 
+	DECLARE d_suborder_id INT;
+    
 	SELECT COUNT(p_family_Name) INTO family_count FROM Family
-    WHERE p_family_Name = Family.Family_Name;
+    WHERE p_family_Name = Family.Family_Name; 
+    
+    SELECT Sub_Order_Id INTO d_suborder_id From Sub_Order 
+    WHERE p_suborder = Sub_Order.Sub_Order_Name;
     
     IF family_count >= 1 THEN
 		RETURN -1;
 	ELSEIF family_count = 0 THEN
 		INSERT INTO Family(Family_Name, FK_Sub_Order_Id)
-        VALUES (p_family_Name, p_suborder_id);
+        VALUES (p_family_Name, d_suborder_id);
         RETURN 1;
 	END IF;
-END  
+END
 
 
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_gender`(
      p_gender_Name VARCHAR(45),  
-     p_family_id INT 
+     p_family VARCHAR(45) 
 ) RETURNS int(11)
 BEGIN
-	DECLARE 
-		gender_count INT;
+	DECLARE gender_count INT; 
+	DECLARE d_family_id INT;  
+    
 	SELECT COUNT(p_gender_Name) INTO gender_count FROM Gender
     WHERE p_gender_Name = Gender.Gender_Name;
+    
+    SELECT family_id INTO d_family_id FROM Family 
+    Where p_family = Family.Family_Name;
     
     IF gender_count >= 1 THEN
 		RETURN -1;
 	ELSEIF gender_count = 0 THEN
-		INSERT INTO Gender(Geneder_Name, FK_Family_Id)
-        VALUES (p_gender_Name, p_family_id);
+		INSERT INTO Gender(Gender_Name, FK_Family_Id)
+        VALUES (p_gender_Name, d_family_id);
         RETURN 1;
 	END IF;
-END    
+END 
    
 
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_species`(
      p_species_Name VARCHAR(45),  
-     p_gender_id INT,  
-     p_size_id INT,  
-     p_habitat_id INT,  
-     p_beak_type_id INT, 
-     p_color_id INT, 
-     p_offspring_id INT, 
-     p_user_id INT
-    
+     p_gender VARCHAR(45)
 ) RETURNS int(11)
 BEGIN
-	DECLARE 
-		species_count INT;
-	SELECT COUNT(p_species_Name) INTO species_count FROM Species 
-    WHERE p_species_Name = Species.Species_Name;
+	DECLARE species_count INT; 
+    DECLARE d_gender_id INT; 
+    
+	SELECT COUNT(p_species_Name) INTO species_count FROM Specie 
+    WHERE p_species_Name = Specie.Specie_Name;
+    
+    SELECT Gender_id INTO d_gender_id FROM Gender 
+    WHERE p_gender = Gender.Gender_Name; 
     
     IF species_count >= 1 THEN
 		RETURN -1;
 	ELSEIF species_count = 0 THEN
-		INSERT INTO Species(Species_Name, FK_Gender_Id, FK_Size_Id, FK_Habitat_Id, FK_Beak_Type_Id, FK_Color_Id, FK_Offspring_Quantity_Id, FK_User_Id )
-        VALUES (p_species_Name, p_gender_id, p_size_id, p_habitat_id, p_beak_type_id, p_color_id, p_offspring_id, p_user_id);
+		INSERT INTO Specie(Specie_Name, FK_Gender_Id)
+        VALUES (p_species_Name, d_gender_id);
         RETURN 1;
 	END IF;
-END   
+END  
 
 --------------------------------------------------------------------------- 
 
 CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_size`(
-     p_size_Name VARCHAR(45)
+     p_size_Name VARCHAR(45) 
 ) RETURNS int(11)
 BEGIN
 	DECLARE 
@@ -152,7 +164,7 @@ BEGIN
         VALUES (p_size_Name);
         RETURN 1;
 	END IF;
-END   
+END
 
 --------------------------------------------------------------------------- 
 
@@ -172,7 +184,7 @@ BEGIN
         VALUES (p_habitat_Name);
         RETURN 1;
 	END IF;
-END    
+END 
 
 --------------------------------------------------------------------------- 
 
@@ -192,7 +204,7 @@ BEGIN
         VALUES (p_beak_type_Name);
         RETURN 1;
 	END IF;
-END   
+END
  
 
 
