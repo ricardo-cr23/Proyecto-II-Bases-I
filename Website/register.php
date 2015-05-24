@@ -16,9 +16,9 @@
         <input id="register" type="password" class="form-control" placeholder="Password" name="form_phone" maxlength="45">
         <input id="register" type="password" class="form-control" placeholder="Confirm Password" name="form_phone" maxlength="45">
         <legend>Are you an expert or a normal user?</legend>
-          <input type="radio" id="regular_user" name="animal" value="0" checked style="height: 20px">
+          <input type="radio" id="regular_user" name="animal" value="regular user" checked style="height: 20px">
           <label>Normal User</label> <br />
-          <input type="radio" id="expert" name="animal" value="1" style="height: 20px">
+          <input type="radio" id="expert" name="animal" value="expert" style="height: 20px">
           <label>Expert</label> <br />
       </div>
 		<div class="col-lg-6">

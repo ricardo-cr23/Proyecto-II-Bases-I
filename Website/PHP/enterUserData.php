@@ -24,10 +24,10 @@
 		exit($dbconnection->error);
 		return false;
 	} else {
-		$stmt->bind_param('sssssi', $username,$password,$name,$lastName,$email,$userType);
+		$stmt->bind_param('ssssss', $username,$password,$name,$lastName,$email,$userType);
 		$stmt->execute();
 		$result= $stmt->get_result()->fetch_row()[0];
-		exit ($result);
+		echo ($result);
 	}
 	
 	$dbconnection->close();

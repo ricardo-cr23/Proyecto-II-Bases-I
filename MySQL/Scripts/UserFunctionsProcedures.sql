@@ -4,7 +4,7 @@ CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `user_insert_user_data`(
      p_name VARCHAR(45),
      p_last_name VARCHAR(45),
      p_email VARCHAR(45),
-     p_usertype INT
+     p_usertype VARCHAR(45)
 ) RETURNS int(11)
 BEGIN
 	DECLARE 
@@ -47,3 +47,5 @@ BEGIN
     FROM user_table 
     WHERE username = p_username;
 END
+
+
