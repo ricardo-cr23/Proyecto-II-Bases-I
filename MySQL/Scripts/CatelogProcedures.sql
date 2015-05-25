@@ -250,6 +250,54 @@ BEGIN
 END   
  
 
+------------------------------------------------------------------------ 
+CREATE DEFINER=`DBadmin`@`localhost` FUNCTION `insert_found_specie`( 
+     p_Specie VARCHAR(45),  
+     p_Size VARCHAR(45),  
+     p_habitat VARCHAR(45),  
+     p_beak_type VARCHAR(45), 
+     p_color  VARCHAR(45), 
+     p_offspring  VARCHAR(45), 
+     p_user  INT 
+) RETURNS int(11)
+BEGIN
+	DECLARE d_specie_id INT; 
+	DECLARE d_size_id INT; 
+	DECLARE d_habitat_id INT; 
+	DECLARE d_beak_id INT; 
+	DECLARE d_color_id INT; 
+	DECLARE d_offspring_id INT;  
+
+	SELECT Specie_Id INTO d_specie_id 
+	FROM specie 
+	WHERE p_Specie = specie.Specie_Name;  
+
+	SELECT Size_Id INTO d_size_id 
+	FROM Size 
+	WHERE p_Size = Size.Size_Name; 
+
+	SELECT Habitat_Id INTO d_habitat_id 
+	FROM Habitat
+	WHERE p_habitat = Habitat.Habitat_Name; 
+
+	SELECT Beak_Type_Id INTO d_beak_id 
+	FROM beak_type
+	WHERE p_beak_type = beak_type.Beak_Name; 
+
+	SELECT Color_Id INTO d_color_id 
+	FROM Color
+	WHERE p_color = Color.Color_Name; 
+
+	SELECT Offspring_Quantity_Id INTO d_offspring_id
+	FROM offspring_quantity
+	WHERE p_offspring = offspring_quantity.Quantity;
+
+	INSERT INTO Species(FK_Size_Id, FK_Habitat_Id, FK_Beak_Type_Id, FK_Color_Id, FK_Offspring_Quantity_Id, FK_User_Id, FK_Specie_Id)
+    VALUES (d_size_id, d_habitat_id, d_beak_id, d_color_id, d_offspring_id, p_user, d_specie_id);
+    
+    RETURN 1;
+END
+
 
 ----------------------------Edits---------------------------------------
 
