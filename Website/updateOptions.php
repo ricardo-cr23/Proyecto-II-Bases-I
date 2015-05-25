@@ -1,8 +1,10 @@
 
 
- <?php 
+ <?php  
+ // Created By Miuyin 5/24/2015
  //  PHP that changes the radio button options in the manage categories.php according to what the users select in the combobox  
  // This PHP is called by manage-categories on the javascript ajax function update();   
+ 
  
 $conn = new mysqli('localhost','DBadmin','dbadmin','BirdDatabase');
 
@@ -16,7 +18,7 @@ if ($conn->connect_error) {
 		//parameter received by ajax in the function update in manage-categories.php 
 		
 		$Selected = $_GET['selectedOption'];  
-		echo " $Selected <br />" ;
+		echo " $Selected Options<br />" ;
 		
 		if($Selected == "Class"){  	 
 		$sql = "SELECT * FROM Class";
