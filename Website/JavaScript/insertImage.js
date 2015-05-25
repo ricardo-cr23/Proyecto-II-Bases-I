@@ -35,17 +35,23 @@ function sendImage(){
 	reader.onload = function(){
 		var text = reader.result;
 		imageFile = text;
-		console.log(imageFile);
 		imageData[0] = imageFile;
 		imageData[1] = imageName;
 		imageData[2] = imageLocation;
 		
 		Json = JSON.stringify({imageData: imageData});
-		console.log(Json);
 		
 		XMLHttp.onreadystatechange = function() {
 		    if (XMLHttp.readyState == 4 && XMLHttp.status == 200) {
 		    	serverResponse = XMLHttp.responseText
+		    	code =code = parseInt(serverResponse);
+		    	if (code == 1){
+		    		alert("Image uploaded succesfully");
+		    		clearInputs();
+		    	} else {
+		    		alert("There was an error while uploading the image, please try again.")
+		    		clearInputs();
+		    	}
 		    	
 		    }
 		    	

@@ -109,7 +109,7 @@
 				</div>
 			</div>
 			<div class="col-lg-6 col-sm-6">
-					<button id="view gallery" type="button" class="btn btn-primary">View Gallery</button>
+					<button id="view gallery" type="button" class="btn btn-primary" onclick="window.location.href='gallery.php'">View Gallery</button>
 				</div>
 		 </div>
 			

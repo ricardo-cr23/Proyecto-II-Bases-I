@@ -13,6 +13,12 @@
 	$finalResult = '';
 	
 	$sqlVariableGetUsers = 'CALL user_find_users(?,?)';
+	
+	if ($dbconnection->connect_error) {
+		die("Connection failed: " . $dbconnection->connect_error);
+		echo "-1";
+		return false;
+	}
 
 	if($searchParameter  == ""){
 		$searchType = 0;
