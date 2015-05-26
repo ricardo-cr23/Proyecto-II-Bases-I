@@ -18,14 +18,15 @@ if ($conn->connect_error) {
 		$color = $_POST['Color_combo'];   
 		$offspring = $_POST['offSpring_combo']; 
 		$image = $_POST['photo'];   
-		$username = $userDetails['dataToSend'][0];
+		$username = $_SESSION['id'];
 		
 		echo $specie; 
 		echo $size; 
 		echo $habitat; 
 		echo $beak; 
 		echo $color;
-		echo $offspring;  
+		echo $offspring;   
+		echo $username;
 		
 			$sqlVariableUser = 'SELECT insert_found_specie(?, ?, ?, ?, ?, ?, ?);';
 			if(!$stmt = $conn->prepare($sqlVariableUser)){
@@ -37,13 +38,6 @@ if ($conn->connect_error) {
 				$result= $stmt->get_result()->fetch_row()[0];
 				echo ($result);
 			}
-	
-		
-
-		
-
-		
-
 
 ?> 		
 
