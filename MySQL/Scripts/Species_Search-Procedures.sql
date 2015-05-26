@@ -1,24 +1,43 @@
 -- Package for species search
--- By Ricardo Leon
+-- By Ricardo Leon and modified by Miuyin
+
 
 CREATE DEFINER=`DBadmin`@`localhost` PROCEDURE `find_my_species`(
-	p_User_ID INT(11)
+        p_User_ID INT(11)
 )
 BEGIN
-	SELECT `Species_ID`, `Species_Name`, `Gender_Name`, `Family_Name`, `Order_Name`, `Sub_Order_Name`, `Class_Name`, `Size_Name`, `Habitat_Name`, `Beak_Name`, `Color_Name`, `Quantity`
-	FROM `Species`,`Gender`, `Family`, `Order`, `Sub_Order`, `Class`, `Size`, `Habitat`, `Beak_Type`, `Color`, `Offspring_Quantity`
-	WHERE `p_User_ID` = `species`.`FK_User_Id`
-	AND `Species`.`FK_Gender_ID` = `Gender`.`Gender_ID`
-        AND `Species`.`FK_Family_ID` = `Family`.`Family_ID`
-        AND `Species`.`FK_Order_ID` = `Order`.`Order_ID`
-        AND `Species`.`FK_Sub_Order_ID` = `Sub_Order`.`Sub_Order_ID`
-        AND `Species`.`FK_Class_ID` = `Class`.`Class_ID`
-        AND `Species`.`FK_Size_ID` = `Size`.`Size_ID`
-        AND `Species`.`FK_Habitat_ID` = `Habitat`.`Habitat_ID`
-        AND `Species`.`FK_Beak_Type_ID` = `Beak_Type`.`Beak_Type_ID`
-        AND `Species`.`FK_Color_ID` = `Color`.`Color_ID`
-        AND `Species`.`FK_Offspring_Quantity_ID` = `Offspring_Quantity`.`Offspring_Quantity_ID`
-	;
-END
+        SELECT Specie_Name, Size_Name, Habitat_Name, Beak_Name, Color_Name, Quantity, Gender_Name, Family_Name, Sub_Order_Name, Order_Name, Class_Name
+        FROM species_found, specie, Size, Habitat, Beak_Type, Color, offspring_quantity, Gender, Family, Sub_Order, Orders, Class
+        WHERE Fk_User_Id = p_User_ID 
+        AND specie.Specie_Id = species_found.FK_Specie_Id 
+        AND Size.Size_Id = species_found.FK_Size_Id
+        AND Habitat.Habitat_Id = species_found.FK_Habitat_Id 
+        AND Beak_Type.Beak_Type_Id = species_found.FK_Beak_Type_Id 
+        AND Color.Color_Id = species_found.FK_Color_Id 
+        AND offspring_quantity.Offspring_Quantity_Id = species_found.FK_Offspring_Quantity_Id 
+        AND Gender.Gender_Id = species_found.FK_Specie_Id 
+        AND Family.Family_Id = Gender.FK_Family_Id 
+        AND Sub_Order.Sub_Order_Id = Family.FK_Sub_Order_Id 
+        AND Orders.Order_Id = Sub_Order.FK_Order_Id 
+        AND Class.Class_Id = Orders.FK_Class_Id; 
+END 
 
-/*Si modifican algo me avisan, para yo implementar el resto de busquedas n.n */
+CREATE DEFINER=`DBadmin`@`localhost` PROCEDURE `find_all_species`(
+        p_User_ID INT(11)
+)
+BEGIN
+
+        SELECT Specie_Name, Size_Name, Habitat_Name, Beak_Name, Color_Name, Quantity, Gender_Name, Family_Name, Sub_Order_Name, Order_Name, Class_Name
+        FROM species_found, specie, Size, Habitat, Beak_Type, Color, offspring_quantity, Gender, Family, Sub_Order, Orders, Class
+        WHERE specie.Specie_Id = species_found.FK_Specie_Id 
+        AND Size.Size_Id = species_found.FK_Size_Id
+        AND Habitat.Habitat_Id = species_found.FK_Habitat_Id 
+        AND Beak_Type.Beak_Type_Id = species_found.FK_Beak_Type_Id 
+        AND Color.Color_Id = species_found.FK_Color_Id 
+        AND offspring_quantity.Offspring_Quantity_Id = species_found.FK_Offspring_Quantity_Id 
+        AND Gender.Gender_Id = species_found.FK_Specie_Id 
+        AND Family.Family_Id = Gender.FK_Family_Id 
+        AND Sub_Order.Sub_Order_Id = Family.FK_Sub_Order_Id 
+        AND Orders.Order_Id = Sub_Order.FK_Order_Id 
+        AND Class.Class_Id = Orders.FK_Class_Id;  
+END
