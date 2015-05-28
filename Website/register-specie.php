@@ -16,7 +16,8 @@
 		
 	  <form enctype="multipart/form-data" action="REGISTER_FOUND_SPECIE.php" method="POST" class="register-specie-form" id="register-specie-form">
 	   <!-- specie--> 
-		<select name="specie_combo" style="width: 400px"   id = "specie_combo" class="form-control">
+	   <H4>Select Specie:</H4>
+		<select name="specie_combo" style="width: 400px"   id = "specie_combo" class="form-control"> 
 		<option value = "-1">Select Specie:</option> 
 		<?php  
 		$conn = new mysqli('localhost','DBadmin','dbadmin','BirdDatabase');
@@ -34,86 +35,13 @@
 		?>  
 		</select>  
 		 <!-- specie -->
-   
-        
-        <!-- Size  --> 
-		<div class="Size" id = "Size">
-        <select name="size_combo" style="width: 400px"  id = "size_combo" class="form-control">
-		<option value = "-1">Select Breed:</option> 
-		<?php  
-		
-				$sql = "SELECT Size_Name FROM Size";
-				$result = $conn->query($sql);
-				    while($row = $result->fetch_assoc()) {  
-					     echo '<option>' . $row['Size_Name'] . '</option>';
-					}
-		?>  
-		</select>   
-		</div>
-        <!-- Size -->
-
-        <!-- Habitat -->
-        <select name="Habitat_combo" style="width: 400px"  id = "Habitat_combo" class="form-control">
-		<option value = "-1">Select Habitat:</option> 
-		<?php  
-		
-				$sql = "SELECT Habitat_Name FROM Habitat";
-				$result = $conn->query($sql);
-					 while($row = $result->fetch_assoc()) {  
-						 echo '<option>' . $row['Habitat_Name'] . '</option>';
-				}
-		?>   
-		</select> 
-        <!-- Habitat -->
-
-        <!--Beak -->
-        <select name="Beak_combo" style="width: 400px"  id = "Beak_combo" class="form-control">
-		<option value = "-1">Select Beak Type:</option> 
-		<?php  
-		
-				$sql = "SELECT Beak_Name FROM Beak_Type";
-				$result = $conn->query($sql);
-					 while($row = $result->fetch_assoc()) {  
-						 echo '<option>' . $row['Beak_Name'] . '</option>';
-				}
-		?>   
-		</select>	
-        <!-- Beak-->
-		
-      </div>  
-
-      <div class="col-lg-6">   
-	  
-	  <!-- Color  --> 
-        <select name="Color_combo" style="width: 400px"  id = "Color_combo" class="form-control">
-		<option value = "-1">Select Color:</option> 
-		<?php  
-		
-				$sql = "SELECT Color_Name FROM Color";
-				$result = $conn->query($sql);
-					 while($row = $result->fetch_assoc()) {  
-						 echo '<option>' . $row['Color_Name'] . '</option>';
-				}
-		?>   
-		</select> 
-		<!-- Color -->  
-		
-		<!-- Quantity -->
-		<select  name="offSpring_combo" style="width: 400px"  id = "offSpring_combo" class="form-control" >
-		<option value = "-1">Select Offspring Quantity:</option>
-		<?php  
-		
-				$sql = "SELECT Quantity FROM offspring_quantity";
-				$result = $conn->query($sql);
-					 while($row = $result->fetch_assoc()) {  
-						 echo '<option>' . $row['Quantity'] . '</option>';
-				}
-		?> 
-		</select>
-		<!-- Quantity -->  
+  
 		
 		<label>Please enter a URL with a photo of your found specie:</label>
-        <input type="URL" class="form-control" name="photo" title="Photo" /> <!-- -should be required -->
+        <input type="URL" class="form-control" name="photo" title="Photo" /> <!-- -should be required --> 
+		
+		<label>Observations:</label>
+		<input type="Observations" class="form-control" name="Observations" title="Observations" /> 
 
       </div>
     </div>

@@ -58,11 +58,11 @@
         <ul class="pull-right">
           <!-- Public buttons -->
 			  <li><button id="search_users" style="display:none" class="btn btn-info" onclick="window.location.href='search_users.php'">Find A User</button></li>
-			  <li><button id="search_stuff" style="display:none" class="btn btn-info" onclick="window.location.href='search-pets.php'">Find A Species</button></li> 
+			  <li><button id="search_stuff" style="display:none" class="btn btn-info" onclick="window.location.href='search-specie.php'">Find A Species</button></li> 
               <li><button id="stats" style="display:none" class="btn btn-info" onclick="window.location.href='Statistics.php'"> Statistics</button></li>
               <li><button id="my_account" style="display:none" class="btn btn-info" onclick="window.location.href='myAccount.php'">My account</button></li>
-              <li><button id="my_registrations" style="display:none" class="btn btn-info" onclick="window.location.href='myPets.php'">My Registered Species</button></li> 
-			  <li><button id="add" style="display:none" class="btn btn-info" onclick="window.location.href='register-pet.php'">Add A Species</button></li>
+              <li><button id="my_registrations" style="display:none" class="btn btn-info" onclick="window.location.href='mySpecies.php'">My Registered Species</button></li> 
+			  <li><button id="add" style="display:none" class="btn btn-info" onclick="window.location.href='register-specie.php'">Add A Species</button></li>
 			  <li><button id="logout" style="display:none" id="logout" class="btn btn-info">Logout</button></li>
 			  <li><button id="login"  class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button></li>
 			  <li><button id="register" class="btn btn-info" onclick="window.location.href='register.php'">Register</button></li>

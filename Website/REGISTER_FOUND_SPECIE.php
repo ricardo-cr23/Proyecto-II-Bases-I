@@ -11,29 +11,17 @@ if ($conn->connect_error) {
 }   
 		session_start();  
 		
-		$specie =  $_POST['specie_combo']; 
-		$size =  $_POST['size_combo'];  
-		$habitat =  $_POST['Habitat_combo'];  
-		$beak = $_POST['Beak_combo'];   
-		$color = $_POST['Color_combo'];   
-		$offspring = $_POST['offSpring_combo']; 
-		$image = $_POST['photo'];   
-		$username = $_SESSION['id'];
+		$specie =  $_POST['specie_combo'];  
+		$observation = $_POST['Observations'];
+		$username = $_SESSION['id']; 
+
 		
-		echo $specie; 
-		echo $size; 
-		echo $habitat; 
-		echo $beak; 
-		echo $color;
-		echo $offspring;   
-		echo $username;
-		
-			$sqlVariableUser = 'SELECT insert_found_specie(?, ?, ?, ?, ?, ?, ?);';
+			$sqlVariableUser = 'SELECT insert_found_specie(?, ?, ?);';
 			if(!$stmt = $conn->prepare($sqlVariableUser)){
 				exit($conn->error);
 				return false;
 			} else {
-				$stmt->bind_param('ssssssi', $specie, $size, $habitat, $beak, $color, $offspring, $username);
+				$stmt->bind_param('sis', $specie, $username, $observation);
 				$stmt->execute();
 				$result= $stmt->get_result()->fetch_row()[0];
 				echo ($result);

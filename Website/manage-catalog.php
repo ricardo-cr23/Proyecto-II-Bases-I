@@ -30,7 +30,7 @@
                 </div> 
                 <div class="row">
                   <div class="col-lg-12">
-                    <select id = "consultFacts"  name = "consultFacts" onchange = "update();"> 
+                    <select id = "consultFacts"  name = "consultFacts" onchange = "update();" class="form-control"> 
                       <optgroup label="Categories">
                         <optgroup label="Taxonomy">
                           <option>Class</option>
@@ -284,7 +284,7 @@
             <form class="" role="form">
               <div class="row">
                   <div class="col-lg-12" id= "newOptions">
-                    <select id = "newCategory"  name = "newCategory" onchange = "newBreedSelected();"> 
+                    <select id = "newCategory"  name = "newCategory" onchange = "newBreedSelected();" class="form-control" > 
                       <optgroup label="Categories">
                         <optgroup label="Taxonomy">
                           <option>Class</option>
@@ -311,7 +311,7 @@
                 <label class="sr-only" for="inputPassword">Name</label>
                 <input id="new_name" type="text" class="form-control" name = "new_name" placeholder="Enter new name" required >
               </div>
-              <input type="submit" value="Create New" class="boton"> 
+              <input type="submit" class="btn btn-info" value="Create New" class="boton"> 
             </form>
           </div>
         </div>
