@@ -17,7 +17,6 @@ if ($conn->connect_error) {
 		$var2 = $_GET['newNameText']; 
 		$var3 = $_GET['selectedType']; 
 			
-		echo $var1;
   
 		
 		if($var1 == "Class"){   
@@ -87,18 +86,6 @@ if ($conn->connect_error) {
 			}
 		}
 		
-		else if ($var1 == "Species"){ 
-			 $sqlVariableUser = 'SELECT insert_species(?, ?);';
-			if(!$stmt = $conn->prepare($sqlVariableUser)){
-				exit($conn->error);
-				return false;
-			} else {
-				$stmt->bind_param('ss', $var2, $var3);
-				$stmt->execute();
-				$result= $stmt->get_result()->fetch_row()[0];
-				echo ($result);
-			}
-		}
 		
 		else if ($var1 == "Color"){ 
 			$sqlVariableUser = 'SELECT insert_color(?);';
