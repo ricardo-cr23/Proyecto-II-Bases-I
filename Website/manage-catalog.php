@@ -217,7 +217,7 @@
 		var Id = document.getElementById("newCategory");
         var selectedOption = Id.options[Id.selectedIndex].value;   
 		var newNameText = document.getElementById("new_name").value; 
-		var selectedType = "none"; 
+		var selectedType = "none";  
 	    
 		
 		  if (window.XMLHttpRequest)
@@ -237,13 +237,22 @@
 			}
 		  }  
 		  
-		if(selectedOption == "Order" || selectedOption == "Sub-Order" || selectedOption == "Family" || selectedOption == "Genera" || selectedOption == "Species"){ 
-		    var selectedType = document.getElementById("Other").value;  
-		} 
-			
-		xmlhttp.open("GET","Inserts.php?selectedOption=" + selectedOption + "&newNameText=" + newNameText + "&selectedType=" +selectedType ,true);
+		if(selectedOption == "Order" || selectedOption == "Sub-Order" || selectedOption == "Family" || selectedOption == "Genera"){ 
+		    var selectedType = document.getElementById("Other").value;   
+			xmlhttp.open("GET","Inserts.php?selectedOption=" + selectedOption + "&newNameText=" + newNameText + "&selectedType=" +selectedType ,true);
+		}  
+		
+		else if(selectedOption == "Species"){  
+			window.location = "register-catalog-specie.php"; 
+		}
+		
+		else{
+			xmlhttp.open("GET","Inserts.php?selectedOption=" + selectedOption + "&newNameText=" + newNameText + "&selectedType=" +selectedType ,true);
+		}
+	
 		xmlhttp.send(); 
-		alert("Congratulation, the insertion was successful !  :)");	
+		alert("Congratulation, the insertion was successful !  :)");	 
+		window.location = "manage-catalog.php";
 		} 
   </script>   
 
@@ -280,7 +289,7 @@
       <div class="modal-content">
         <div class="row">
           <div class="col-sm-8 login" id = "AllNew">
-            <h4>Create</h4>
+            <h2>Create New</h2>
             <form class="" role="form">
               <div class="row">
                   <div class="col-lg-12" id= "newOptions">
