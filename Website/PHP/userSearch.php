@@ -31,7 +31,7 @@
 	
 	 $stmt->execute();
 	 $result = $stmt->get_result(); 
-	 if($result->num_rows == null){
+	 if($result->num_rows == 0){
 	 	$finalResult = "<h2>No results found<h2>";	
 	 }
 	 

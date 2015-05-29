@@ -18,6 +18,7 @@ function checkLoginStatus(){
 		    		document.getElementById("stats").style.display = "inline";
 		    		document.getElementById("my_account").style.display = "inline";
 		    		document.getElementById("my_registrations").style.display = "inline";
+		    		document.getElementById("catalog").style.display = "inline";
 		    		document.getElementById("add").style.display = "inline";
 		    		document.getElementById("login").style.display = "none";
 		    		document.getElementById("logout").style.display = "inline";

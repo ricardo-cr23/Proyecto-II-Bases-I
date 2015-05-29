@@ -1,12 +1,4 @@
 <?php include'header.php';?>
-<!-- banner -->
-<div class="inside-banner">
-  <div class="container">
-    <span class="pull-right"><a href="userIndex.php">Home</a> / User Profile</span>
-    <h2>User Profile</h2>
-  </div>
-</div>
-
 <?php 
 	session_start();
 	$username = $_SESSION['username'];
@@ -16,6 +8,14 @@
 	$expert = $_SESSION['expert'];
 	$primaryEmail = $_SESSION['email'];
 ?>
+<!-- banner -->
+<div class="inside-banner">
+  <div class="container">
+    <span class="pull-right"><a href="userIndex.php">Home</a> / User Profile</span>
+    <h2>User Profile</h2>
+  </div>
+</div>
+
 <!-- banner -->
 <script src="JavaScript/insertImage.js"></script>
 <div class="container">
@@ -114,7 +114,7 @@
 					</select>
 					<input id="name" type="text" class="form-control" name="image name" placeholder="Image Name"/>
 					<input id="location" type="text" class="form-control" name="location" placeholder="Image Location"/>
-					<input id="image" type="file" class="form-control" name="image upload"/>
+					<input id="image" type="input" class="form-control" name="image upload" placeholder="Place your URL here"/>
 					<button id="upload image" type="button" class="btn btn-primary">Upload Image</button>
 				</div>
 				<div col-lg-6 col-sm-6>

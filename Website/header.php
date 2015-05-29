@@ -61,6 +61,7 @@
 			  <li><button id="search_stuff" style="display:none" class="btn btn-info" onclick="window.location.href='search-specie.php'">Find A Species</button></li> 
               <li><button id="stats" style="display:none" class="btn btn-info" onclick="window.location.href='Statistics.php'"> Statistics</button></li>
               <li><button id="my_account" style="display:none" class="btn btn-info" onclick="window.location.href='myAccount.php'">My account</button></li>
+              <li><button id="catalog" style="display:none" class="btn btn-info" onclick="window.location.href='manage-catalog.php'">Manage Catalogs</button></li>
               <li><button id="my_registrations" style="display:none" class="btn btn-info" onclick="window.location.href='mySpecies.php'">My Registered Species</button></li> 
 			  <li><button id="add" style="display:none" class="btn btn-info" onclick="window.location.href='register-specie.php'">Add A Species</button></li>
 			  <li><button id="logout" style="display:none" id="logout" class="btn btn-info">Logout</button></li>
